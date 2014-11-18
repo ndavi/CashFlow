@@ -14,6 +14,13 @@ namespace Metier
             nbrAnnees,
             tauxActualisation,
             valeurResiduelle;
+        private List<Annee> listeAnnee = new List<Annee>();
+
+        public List<Annee> ListeAnnee
+        {
+            get { return listeAnnee; }
+            set { listeAnnee = value; }
+        }
 
         public double ValeurResiduelle
         {
@@ -46,7 +53,7 @@ namespace Metier
         }
         #endregion
 
-        public void CashFlow()
+        public CashFlow()
         {
 
         }
