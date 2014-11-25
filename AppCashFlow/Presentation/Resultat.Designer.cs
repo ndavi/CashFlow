@@ -32,10 +32,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tc_resultat = new System.Windows.Forms.TabControl();
             this.tp_cashflow = new System.Windows.Forms.TabPage();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.cashFlowBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dgv = new System.Windows.Forms.DataGridView();
             this.ca = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cv = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cf = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,9 +42,12 @@
             this.montant_is = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.valeur_residuelle = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cash_flow = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.cashFlowBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tc_resultat.SuspendLayout();
             this.tp_cashflow.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cashFlowBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,26 +59,26 @@
             this.tc_resultat.Location = new System.Drawing.Point(1, 55);
             this.tc_resultat.Name = "tc_resultat";
             this.tc_resultat.SelectedIndex = 0;
-            this.tc_resultat.Size = new System.Drawing.Size(680, 347);
+            this.tc_resultat.Size = new System.Drawing.Size(840, 347);
             this.tc_resultat.TabIndex = 0;
             // 
             // tp_cashflow
             // 
-            this.tp_cashflow.Controls.Add(this.dataGridView1);
+            this.tp_cashflow.Controls.Add(this.dgv);
             this.tp_cashflow.Location = new System.Drawing.Point(4, 22);
             this.tp_cashflow.Name = "tp_cashflow";
             this.tp_cashflow.Padding = new System.Windows.Forms.Padding(3);
-            this.tp_cashflow.Size = new System.Drawing.Size(672, 321);
+            this.tp_cashflow.Size = new System.Drawing.Size(832, 321);
             this.tp_cashflow.TabIndex = 0;
             this.tp_cashflow.Text = "Cash-Flow";
             this.tp_cashflow.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // dgv
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.RaisedHorizontal;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgv.AllowUserToAddRows = false;
+            this.dgv.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.RaisedHorizontal;
+            this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ca,
             this.cv,
             this.cf,
@@ -95,39 +95,15 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 3);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(666, 315);
-            this.dataGridView1.TabIndex = 0;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(672, 321);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Cash Flow Actualisé";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(672, 321);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Conclusion";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // cashFlowBindingSource
-            // 
-            this.cashFlowBindingSource.DataSource = typeof(Metier.CashFlow);
+            this.dgv.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dgv.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv.Location = new System.Drawing.Point(3, 3);
+            this.dgv.Name = "dgv";
+            this.dgv.ReadOnly = true;
+            this.dgv.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.dgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.dgv.Size = new System.Drawing.Size(826, 315);
+            this.dgv.TabIndex = 0;
             // 
             // ca
             // 
@@ -183,17 +159,41 @@
             this.cash_flow.Name = "cash_flow";
             this.cash_flow.ReadOnly = true;
             // 
+            // tabPage2
+            // 
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(672, 321);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Cash Flow Actualisé";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(672, 321);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Conclusion";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // cashFlowBindingSource
+            // 
+            this.cashFlowBindingSource.DataSource = typeof(Metier.CashFlow);
+            // 
             // Resultat
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(680, 400);
+            this.ClientSize = new System.Drawing.Size(833, 394);
             this.Controls.Add(this.tc_resultat);
             this.Name = "Resultat";
             this.Text = "Resultat";
             this.tc_resultat.ResumeLayout(false);
             this.tp_cashflow.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cashFlowBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -203,7 +203,7 @@
 
         private System.Windows.Forms.TabControl tc_resultat;
         private System.Windows.Forms.TabPage tp_cashflow;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgv;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.DataGridViewTextBoxColumn ca;

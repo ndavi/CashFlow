@@ -9,34 +9,34 @@ namespace Metier
     public class Annee
     {
         private int idAnnee;
-        private String chiffreAffaire;
-        private String chargesFixes;
-        private String chargesVariables;
+        private Double chiffreAffaire;
+        private Double chargesFixes;
+        private Double chargesVariables;
 
         public int IdAnnee
         {
             get { return idAnnee; }
             set { idAnnee = value; }
         }
-        public String ChiffreAffaire
+        public Double ChiffreAffaire
         {
             get { return chiffreAffaire; }
             set { chiffreAffaire = value; }
         }
 
-        public String ChargesVariables
+        public Double ChargesVariables
         {
             get { return chargesVariables; }
             set { chargesVariables = value; }
         }
 
-        public String ChargesFixes
+        public Double ChargesFixes
         {
             get { return chargesFixes; }
             set { chargesFixes = value; }
         }
 
-        public Annee(int idAnnee,String chiffreAffaire,String chargesVariables,String chargesFixes)
+        public Annee(int idAnnee,Double chiffreAffaire,Double chargesVariables,Double chargesFixes)
         {
             this.idAnnee = idAnnee;
             this.chiffreAffaire = chiffreAffaire;

@@ -16,6 +16,33 @@ namespace Metier
             valeurResiduelle;
         private List<Annee> listeAnnee = new List<Annee>();
 
+        private double amortissement, chargesAnnuelle, caAvantIS, montantIS;
+
+        public double MontantIS
+        {
+            get { return montantIS; }
+            set { montantIS = value; }
+        }
+
+        public double CaAvantIS
+        {
+            get { return caAvantIS; }
+            set { caAvantIS = value; }
+        }
+
+        public double ChargesAnnuelle
+        {
+            get { return chargesAnnuelle; }
+            set { chargesAnnuelle = value; }
+        }
+
+
+        public double Amortissement
+        {
+            get { return amortissement; }
+            set { amortissement = value; }
+        }
+
         public List<Annee> ListeAnnee
         {
             get { return listeAnnee; }
@@ -55,7 +82,15 @@ namespace Metier
 
         public CashFlow()
         {
-
+            
+        }
+        public void calculAnnee(Annee uneAnnee)
+        {
+            Double amortissement = (montantInvestissementMateriel) - valeurResiduelle;
+            this.amortissement = amortissement / listeAnnee.Count;
+            this.chargesAnnuelle = uneAnnee.ChargesFixes + uneAnnee.ChargesVariables;
+            this.caAvantIS = uneAnnee.ChiffreAffaire - this.chargesAnnuelle;
+            this.montantIS = this.caAvantIS * 0.3313;
         }
     }
 }

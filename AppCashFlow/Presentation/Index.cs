@@ -47,16 +47,16 @@ namespace AppCashFlow.Presentation
                     "Erreur lors du calcul", MessageBoxButtons.OK);
             else if (cptAnnee <= nbrAnnee)
             {
-                cashFlow.ListeAnnee.Add(new Annee(cptAnnee, tbx_chifreAffaire.Text,
-                    tbx_chargesVariables.Text, tbx_ChargesFixes.Text));
+                cashFlow.ListeAnnee.Add(new Annee(cptAnnee, Convert.ToDouble(tbx_chifreAffaire.Text),
+                    Convert.ToDouble(tbx_chargesVariables.Text), Convert.ToDouble(tbx_ChargesFixes.Text)));
                 cptAnnee++;
                 gb_infoAnnee.Text = "Information pour l'année n°" + Convert.ToString(cptAnnee);
                 if (cbx_memeValeurs.Checked)
                 {
                     while (cptAnnee <= 5)
                     {
-                        cashFlow.ListeAnnee.Add(new Annee(cptAnnee, tbx_chifreAffaire.Text,
-                            tbx_chargesVariables.Text, tbx_ChargesFixes.Text));
+                        cashFlow.ListeAnnee.Add(new Annee(cptAnnee, Convert.ToDouble(tbx_chifreAffaire.Text),
+                            Convert.ToDouble(tbx_chargesVariables.Text), Convert.ToDouble(tbx_ChargesFixes.Text)));
                         cptAnnee++;
                         if (cptAnnee <= 5)
                         {

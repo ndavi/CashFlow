@@ -13,12 +13,25 @@ namespace AppCashFlow.Presentation
 {
     public partial class Resultat : Form
     {
-        private static CashFlow cashFlow;
-        public Resultat(CashFlow cashFlowI)
+        private CashFlow cashFlow;
+        public Resultat(CashFlow cashFlow)
         {
             InitializeComponent();
-            cashFlow = cashFlowI;
+            this.cashFlow = cashFlow;
+            this.calculCashFlow();
         }
 
+
+        public void calculCashFlow()
+        {
+            this.dgv.Rows.Clear();
+            foreach (Annee uneAnnee in cashFlow.ListeAnnee)
+            {
+                cashFlow.calculAnnee(uneAnnee);
+                this.dgv.Rows.Add(uneAnnee.ChiffreAffaire,uneAnnee.ChargesVariables,
+                    uneAnnee.ChargesFixes, cashFlow.Amortissement, cashFlow.ChargesAnnuelle,
+                    cashFlow.CaAvantIS,cashFlow.MontantIS);
+            }
+        }
     }
 }
