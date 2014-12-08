@@ -30,7 +30,7 @@ namespace AppCashFlow.Presentation
                 cashFlow.calculAnnee(uneAnnee);
                 this.dgv.Rows.Add(uneAnnee.ChiffreAffaire,uneAnnee.ChargesVariables,
                     uneAnnee.ChargesFixes, cashFlow.Amortissement, cashFlow.ChargesAnnuelle,
-                    cashFlow.CaAvantIS,cashFlow.MontantIS);
+                    cashFlow.CaAvantIS,cashFlow.MontantIS,"val rési");
             }
         }
     }

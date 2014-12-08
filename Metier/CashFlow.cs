@@ -89,7 +89,7 @@ namespace Metier
             Double amortissement = (montantInvestissementMateriel) - valeurResiduelle;
             this.amortissement = amortissement / listeAnnee.Count;
             this.chargesAnnuelle = uneAnnee.ChargesFixes + uneAnnee.ChargesVariables;
-            this.caAvantIS = uneAnnee.ChiffreAffaire - this.chargesAnnuelle;
+            this.caAvantIS = uneAnnee.ChiffreAffaire - this.chargesAnnuelle - this.amortissement;
             this.montantIS = this.caAvantIS * 0.3313;
         }
     }
