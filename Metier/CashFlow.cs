@@ -15,34 +15,14 @@ namespace Metier
             tauxActualisation,
             valeurResiduelle;
         private List<Annee> listeAnnee = new List<Annee>();
+        private double van;
 
-        private double amortissement, chargesAnnuelle, caAvantIS, montantIS;
-
-        public double MontantIS
+        public double Van
         {
-            get { return montantIS; }
-            set { montantIS = value; }
+            get { return van; }
+            set { van = value; }
         }
-
-        public double CaAvantIS
-        {
-            get { return caAvantIS; }
-            set { caAvantIS = value; }
-        }
-
-        public double ChargesAnnuelle
-        {
-            get { return chargesAnnuelle; }
-            set { chargesAnnuelle = value; }
-        }
-
-
-        public double Amortissement
-        {
-            get { return amortissement; }
-            set { amortissement = value; }
-        }
-
+        
         public List<Annee> ListeAnnee
         {
             get { return listeAnnee; }
@@ -87,10 +67,22 @@ namespace Metier
         public void calculAnnee(Annee uneAnnee)
         {
             Double amortissement = (montantInvestissementMateriel) - valeurResiduelle;
-            this.amortissement = amortissement / listeAnnee.Count;
-            this.chargesAnnuelle = uneAnnee.ChargesFixes + uneAnnee.ChargesVariables;
-            this.caAvantIS = uneAnnee.ChiffreAffaire - this.chargesAnnuelle - this.amortissement;
-            this.montantIS = this.caAvantIS * 0.3313;
+            uneAnnee.Amortissement = amortissement / listeAnnee.Count;
+            uneAnnee.ChargesAnnuelle = uneAnnee.ChargesFixes + uneAnnee.ChargesVariables;
+            uneAnnee.CaAvantIS = uneAnnee.ChiffreAffaire - uneAnnee.ChargesAnnuelle - uneAnnee.Amortissement;
+            uneAnnee.MontantIS = uneAnnee.CaAvantIS * 0.3313;
+            if (uneAnnee.IdAnnee == listeAnnee.Count + 1)
+                uneAnnee.CashFlowCalcule = (uneAnnee.Amortissement + (uneAnnee.CaAvantIS - uneAnnee.MontantIS)) + this.valeurResiduelle;        
+            else
+                uneAnnee.CashFlowCalcule = uneAnnee.Amortissement + (uneAnnee.CaAvantIS - uneAnnee.MontantIS);
+            uneAnnee.CfActualise = uneAnnee.CashFlowCalcule * ((Math.Pow((1 + (this.tauxActualisation / 100)), uneAnnee.IdAnnee)));
+            double tmp = 0;
+            foreach (Annee annee in this.listeAnnee)
+            {
+                tmp += annee.CfActualise;
+            }
+            this.van = tmp - this.montantInvestissementProjet;
+
         }
     }
 }

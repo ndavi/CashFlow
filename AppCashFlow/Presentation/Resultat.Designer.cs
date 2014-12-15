@@ -45,10 +45,17 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.cashFlowBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dgv_actualise = new System.Windows.Forms.DataGridView();
+            this.Origine = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.taux_actualisation = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Actualisé = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VAN = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tc_resultat.SuspendLayout();
             this.tp_cashflow.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
+            this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cashFlowBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_actualise)).BeginInit();
             this.SuspendLayout();
             // 
             // tc_resultat
@@ -161,10 +168,11 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.dgv_actualise);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(672, 321);
+            this.tabPage2.Size = new System.Drawing.Size(832, 321);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Cash Flow Actualisé";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -174,7 +182,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(672, 321);
+            this.tabPage3.Size = new System.Drawing.Size(832, 321);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Conclusion";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -182,6 +190,48 @@
             // cashFlowBindingSource
             // 
             this.cashFlowBindingSource.DataSource = typeof(Metier.CashFlow);
+            // 
+            // dgv_actualise
+            // 
+            this.dgv_actualise.AllowUserToAddRows = false;
+            this.dgv_actualise.AllowUserToDeleteRows = false;
+            this.dgv_actualise.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_actualise.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Origine,
+            this.taux_actualisation,
+            this.Actualisé,
+            this.VAN});
+            this.dgv_actualise.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv_actualise.Location = new System.Drawing.Point(3, 3);
+            this.dgv_actualise.Name = "dgv_actualise";
+            this.dgv_actualise.ReadOnly = true;
+            this.dgv_actualise.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgv_actualise.Size = new System.Drawing.Size(826, 315);
+            this.dgv_actualise.TabIndex = 0;
+            // 
+            // Origine
+            // 
+            this.Origine.HeaderText = "Origine";
+            this.Origine.Name = "Origine";
+            this.Origine.ReadOnly = true;
+            // 
+            // taux_actualisation
+            // 
+            this.taux_actualisation.HeaderText = "Taux Actualisation";
+            this.taux_actualisation.Name = "taux_actualisation";
+            this.taux_actualisation.ReadOnly = true;
+            // 
+            // Actualisé
+            // 
+            this.Actualisé.HeaderText = "actualise";
+            this.Actualisé.Name = "Actualisé";
+            this.Actualisé.ReadOnly = true;
+            // 
+            // VAN
+            // 
+            this.VAN.HeaderText = "VAN";
+            this.VAN.Name = "VAN";
+            this.VAN.ReadOnly = true;
             // 
             // Resultat
             // 
@@ -194,7 +244,9 @@
             this.tc_resultat.ResumeLayout(false);
             this.tp_cashflow.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
+            this.tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.cashFlowBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_actualise)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -216,5 +268,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn valeur_residuelle;
         private System.Windows.Forms.DataGridViewTextBoxColumn cash_flow;
         private System.Windows.Forms.BindingSource cashFlowBindingSource;
+        private System.Windows.Forms.DataGridView dgv_actualise;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Origine;
+        private System.Windows.Forms.DataGridViewTextBoxColumn taux_actualisation;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Actualisé;
+        private System.Windows.Forms.DataGridViewTextBoxColumn VAN;
     }
 }

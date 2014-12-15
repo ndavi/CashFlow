@@ -12,6 +12,45 @@ namespace Metier
         private Double chiffreAffaire;
         private Double chargesFixes;
         private Double chargesVariables;
+        private double amortissement, chargesAnnuelle, caAvantIS, montantIS, cashFlowCalcule, cfActualise;
+
+        public double CfActualise
+        {
+            get { return cfActualise; }
+            set { cfActualise = value; }
+        }
+
+        public double CashFlowCalcule
+        {
+            get { return cashFlowCalcule; }
+            set { cashFlowCalcule = value; }
+        }
+
+        public double MontantIS
+        {
+            get { return montantIS; }
+            set { montantIS = value; }
+        }
+
+        public double CaAvantIS
+        {
+            get { return caAvantIS; }
+            set { caAvantIS = value; }
+        }
+
+        public double ChargesAnnuelle
+        {
+            get { return chargesAnnuelle; }
+            set { chargesAnnuelle = value; }
+        }
+
+
+        public double Amortissement
+        {
+            get { return amortissement; }
+            set { amortissement = value; }
+        }
+
 
         public int IdAnnee
         {
