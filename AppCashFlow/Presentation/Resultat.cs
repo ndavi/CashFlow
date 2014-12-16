@@ -34,8 +34,23 @@ namespace AppCashFlow.Presentation
                 this.dgv.Rows.Add(uneAnnee.ChiffreAffaire,uneAnnee.ChargesVariables,
                     uneAnnee.ChargesFixes, uneAnnee.Amortissement, uneAnnee.ChargesAnnuelle,
                     uneAnnee.CaAvantIS, uneAnnee.MontantIS, valResiduelle, uneAnnee.CashFlowCalcule);
-                this.dgv_actualise.Rows.Add(uneAnnee.CashFlowCalcule, cashFlow.TauxActualisation,uneAnnee.CfActualise,cashFlow.Van);
+                this.dgv_actualise.Rows.Add(uneAnnee.CashFlowCalcule, cashFlow.TauxActualisation,uneAnnee.CfActualise);
+                this.van_txt.Text = Convert.ToString(cashFlow.Van);
+                if (cashFlow.Van < 0)
+                    txt_conclusion.Text = "Projet non rentable";
+                else
+                    txt_conclusion.Text = "Projet rentable";
             }
+        }
+
+        private void dgv_actualise_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

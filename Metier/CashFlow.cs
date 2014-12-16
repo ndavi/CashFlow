@@ -70,19 +70,18 @@ namespace Metier
             uneAnnee.Amortissement = amortissement / listeAnnee.Count;
             uneAnnee.ChargesAnnuelle = uneAnnee.ChargesFixes + uneAnnee.ChargesVariables;
             uneAnnee.CaAvantIS = uneAnnee.ChiffreAffaire - uneAnnee.ChargesAnnuelle - uneAnnee.Amortissement;
-            uneAnnee.MontantIS = uneAnnee.CaAvantIS * 0.3313;
+            uneAnnee.MontantIS = uneAnnee.CaAvantIS * 0.3333;
             if (uneAnnee.IdAnnee == listeAnnee.Count + 1)
                 uneAnnee.CashFlowCalcule = (uneAnnee.Amortissement + (uneAnnee.CaAvantIS - uneAnnee.MontantIS)) + this.valeurResiduelle;        
             else
                 uneAnnee.CashFlowCalcule = uneAnnee.Amortissement + (uneAnnee.CaAvantIS - uneAnnee.MontantIS);
-            uneAnnee.CfActualise = uneAnnee.CashFlowCalcule * ((Math.Pow((1 + (this.tauxActualisation / 100)), uneAnnee.IdAnnee)));
+            uneAnnee.CfActualise = uneAnnee.CashFlowCalcule * ((Math.Pow((1 + (this.tauxActualisation / 100)), -uneAnnee.IdAnnee)));
             double tmp = 0;
             foreach (Annee annee in this.listeAnnee)
             {
                 tmp += annee.CfActualise;
             }
             this.van = tmp - this.montantInvestissementProjet;
-
         }
     }
 }
