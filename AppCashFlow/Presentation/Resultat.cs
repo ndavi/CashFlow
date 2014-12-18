@@ -23,7 +23,9 @@ namespace AppCashFlow.Presentation
             this.calculCashFlow();
         }
 
-
+        /// <summary>
+        /// Récupère les valeurs de l'objet cashflow et les insère dans les dgv, et le dernier onglet
+        /// </summary>
         public void calculCashFlow()
         {
             this.dgv.Rows.Clear();
@@ -44,6 +46,11 @@ namespace AppCashFlow.Presentation
                     txt_conclusion.Text = "Projet rentable";
             }
         }
+        /// <summary>
+        /// Génèreune feuille axcel basée sur le dgv
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
             Excel.Application xlApp;
@@ -74,7 +81,10 @@ namespace AppCashFlow.Presentation
             releaseObject(xlWorkBook);
             releaseObject(xlApp);
         }
-
+        /// <summary>
+        /// Supprime l'objet de la mémoire
+        /// </summary>
+        /// <param name="obj">L'objet à supprimer</param>
         private void releaseObject(object obj)
         {
             try

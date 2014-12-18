@@ -17,6 +17,9 @@ namespace AppCashFlow.Presentation
         private static int cptAnnee;
         private static bool terminer = false;
         private static CashFlow cashFlow;
+        /// <summary>
+        /// Instancie un nouveau cashflow et initialise le compteur d'année à 1
+        /// </summary>
         public Index()
         {
             InitializeComponent();
@@ -25,7 +28,11 @@ namespace AppCashFlow.Presentation
             gb_infoAnnee.Text += "1";
 
         }
-
+        /// <summary>
+        /// Vérifie le remplissage de tout les champs,puis passe les informations saisies à un objet cashflow
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_suivant_Click(object sender, EventArgs e)
         {
             if(!nbrAnnee.HasValue)
@@ -102,7 +109,7 @@ namespace AppCashFlow.Presentation
                 }
             }
         }
-
+        //Vérification de la saisie de nombre dans les champs
         #region verificationChamps
 
         private void verificationTbx(KeyPressEventArgs e,TextBox tbx)

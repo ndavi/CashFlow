@@ -64,6 +64,10 @@ namespace Metier
         {
             
         }
+        /// <summary>
+        /// Effectue les différents calculs pour obtenir le cashflow
+        /// </summary>
+        /// <param name="uneAnnee">L'année à calculer</param>
         public void calculAnnee(Annee uneAnnee)
         {
             Double amortissement = (montantInvestissementMateriel) - valeurResiduelle;
