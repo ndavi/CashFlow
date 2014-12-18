@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Metier;
+using Excel = Microsoft.Office.Interop.Excel;
+
 
 namespace AppCashFlow.Presentation
 {
@@ -40,6 +42,54 @@ namespace AppCashFlow.Presentation
                     txt_conclusion.Text = "Projet non rentable";
                 else
                     txt_conclusion.Text = "Projet rentable";
+            }
+        }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Excel.Application xlApp;
+            Excel.Workbook xlWorkBook;
+            Excel.Worksheet xlWorkSheet;
+            object misValue = System.Reflection.Missing.Value;
+
+            Int16 i, j;
+
+            xlApp = new Excel.Application();
+            xlWorkBook = xlApp.Workbooks.Add(misValue);
+
+            xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
+
+            for (i = 0; i <= dgv.RowCount - 2; i++)
+            {
+                for (j = 0; j <= dgv.ColumnCount - 1; j++)
+                {
+                    xlWorkSheet.Cells[i + 1, j + 1] = dgv[j, i].Value.ToString();
+                }
+            }
+
+            xlWorkBook.SaveAs(@"c:\csharp.net-informations.xls", Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
+            xlWorkBook.Close(true, misValue, misValue);
+            xlApp.Quit();
+
+            releaseObject(xlWorkSheet);
+            releaseObject(xlWorkBook);
+            releaseObject(xlApp);
+        }
+
+        private void releaseObject(object obj)
+        {
+            try
+            {
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(obj);
+                obj = null;
+            }
+            catch (Exception ex)
+            {
+                obj = null;
+                MessageBox.Show("Exception Occured while releasing object " + ex.ToString());
+            }
+            finally
+            {
+                GC.Collect();
             }
         }
 

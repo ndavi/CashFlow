@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tc_resultat = new System.Windows.Forms.TabControl();
             this.tp_cashflow = new System.Windows.Forms.TabPage();
             this.dgv = new System.Windows.Forms.DataGridView();
@@ -44,14 +44,15 @@
             this.cash_flow = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.dgv_actualise = new System.Windows.Forms.DataGridView();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.Origine = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.taux_actualisation = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Actualisé = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label1 = new System.Windows.Forms.Label();
-            this.van_txt = new System.Windows.Forms.Label();
-            this.cashFlowBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.txt_conclusion = new System.Windows.Forms.Label();
+            this.van_txt = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cashFlowBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.button1 = new System.Windows.Forms.Button();
             this.tc_resultat.SuspendLayout();
             this.tp_cashflow.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
@@ -98,14 +99,14 @@
             this.montant_is,
             this.valeur_residuelle,
             this.cash_flow});
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgv.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv.Location = new System.Drawing.Point(3, 3);
             this.dgv.Name = "dgv";
@@ -198,19 +199,6 @@
             this.dgv_actualise.TabIndex = 0;
             this.dgv_actualise.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_actualise_CellContentClick);
             // 
-            // tabPage3
-            // 
-            this.tabPage3.Controls.Add(this.txt_conclusion);
-            this.tabPage3.Controls.Add(this.van_txt);
-            this.tabPage3.Controls.Add(this.label1);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(832, 321);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Conclusion";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
             // Origine
             // 
             this.Origine.HeaderText = "Origine";
@@ -229,16 +217,29 @@
             this.Actualisé.Name = "Actualisé";
             this.Actualisé.ReadOnly = true;
             // 
-            // label1
+            // tabPage3
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(57, 88);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(79, 25);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "VAN : ";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.tabPage3.Controls.Add(this.button1);
+            this.tabPage3.Controls.Add(this.txt_conclusion);
+            this.tabPage3.Controls.Add(this.van_txt);
+            this.tabPage3.Controls.Add(this.label1);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(832, 321);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Conclusion";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // txt_conclusion
+            // 
+            this.txt_conclusion.AutoSize = true;
+            this.txt_conclusion.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_conclusion.Location = new System.Drawing.Point(62, 174);
+            this.txt_conclusion.Name = "txt_conclusion";
+            this.txt_conclusion.Size = new System.Drawing.Size(164, 25);
+            this.txt_conclusion.TabIndex = 3;
+            this.txt_conclusion.Text = "txt_conclusion";
             // 
             // van_txt
             // 
@@ -250,19 +251,26 @@
             this.van_txt.TabIndex = 2;
             this.van_txt.Text = "van_txt";
             // 
-            // cashFlowBindingSource
+            // label1
             // 
-            this.cashFlowBindingSource.DataSource = typeof(Metier.CashFlow);
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(57, 88);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(79, 25);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "VAN : ";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // txt_conclusion
+            // button1
             // 
-            this.txt_conclusion.AutoSize = true;
-            this.txt_conclusion.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_conclusion.Location = new System.Drawing.Point(62, 174);
-            this.txt_conclusion.Name = "txt_conclusion";
-            this.txt_conclusion.Size = new System.Drawing.Size(164, 25);
-            this.txt_conclusion.TabIndex = 3;
-            this.txt_conclusion.Text = "txt_conclusion";
+            this.button1.Location = new System.Drawing.Point(62, 237);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "Export excel";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Resultat
             // 
@@ -308,5 +316,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label van_txt;
         private System.Windows.Forms.Label txt_conclusion;
+        private System.Windows.Forms.Button button1;
     }
 }
