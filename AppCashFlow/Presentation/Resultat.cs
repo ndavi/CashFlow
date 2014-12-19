@@ -33,7 +33,7 @@ namespace AppCashFlow.Presentation
             foreach (Annee uneAnnee in cashFlow.ListeAnnee)
             {
                 cashFlow.calculAnnee(uneAnnee);
-                if (uneAnnee.IdAnnee == cashFlow.ListeAnnee.Count +1)
+                if (uneAnnee.IdAnnee == cashFlow.ListeAnnee.Count)
                     valResiduelle = Convert.ToString(cashFlow.ValeurResiduelle);
                 this.dgv.Rows.Add(uneAnnee.ChiffreAffaire,uneAnnee.ChargesVariables,
                     uneAnnee.ChargesFixes, uneAnnee.Amortissement, uneAnnee.ChargesAnnuelle,

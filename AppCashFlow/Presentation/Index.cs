@@ -102,7 +102,7 @@ namespace AppCashFlow.Presentation
                     cashFlow.MontantInvestissementProjet = Convert.ToDouble(tbx_montantInvestissementProjet.Text);
                     cashFlow.MontantInvestissementMateriel = Convert.ToDouble(tbx_montantInvestissement.Text);
                     cashFlow.NbrAnnees = Convert.ToDouble(tbx_nbrAnnees.Text);
-                    cashFlow.TauxActualisation = Convert.ToDouble(tbx_valeurResiduelle.Text);
+                    cashFlow.TauxActualisation = Convert.ToDouble(tbx_tauxActualisation.Text);
                     cashFlow.ValeurResiduelle = Convert.ToDouble(tbx_valeurResiduelle.Text);
                     Resultat fRes = new Resultat(cashFlow);
                     fRes.Show();

@@ -75,7 +75,7 @@ namespace Metier
             uneAnnee.ChargesAnnuelle = uneAnnee.ChargesFixes + uneAnnee.ChargesVariables;
             uneAnnee.CaAvantIS = uneAnnee.ChiffreAffaire - uneAnnee.ChargesAnnuelle - uneAnnee.Amortissement;
             uneAnnee.MontantIS = uneAnnee.CaAvantIS * 0.3333;
-            if (uneAnnee.IdAnnee == listeAnnee.Count + 1)
+            if (uneAnnee.IdAnnee == listeAnnee.Count)
                 uneAnnee.CashFlowCalcule = (uneAnnee.Amortissement + (uneAnnee.CaAvantIS - uneAnnee.MontantIS)) + this.valeurResiduelle;        
             else
                 uneAnnee.CashFlowCalcule = uneAnnee.Amortissement + (uneAnnee.CaAvantIS - uneAnnee.MontantIS);
